@@ -41,6 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -60,11 +61,21 @@ public class MainFrame extends javax.swing.JFrame {
         systemTextArea = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        removePanelButton = new javax.swing.JButton();
+        removeTerminalButton = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        partList = new javax.swing.JList<>();
+        jLabel5 = new javax.swing.JLabel();
+        removePartButton = new javax.swing.JButton();
+        addPartButton = new javax.swing.JButton();
+        partSpinner = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ProxSafe Quote Maker");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Cabinet Type");
@@ -138,6 +149,51 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton1.setText("Finish");
 
+        removePanelButton.setText("Remove");
+        removePanelButton.setEnabled(false);
+        removePanelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removePanelButtonActionPerformed(evt);
+            }
+        });
+
+        removeTerminalButton.setText("Remove");
+        removeTerminalButton.setEnabled(false);
+        removeTerminalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeTerminalButtonActionPerformed(evt);
+            }
+        });
+
+        partList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Mechanical Key Cylinders--Special Keying to Match--All Lockers", "Mechanical Key Cylinders--Special Keying to Match--3U, 6U and 12U Flexx", "Mechanical Key Cylinders--Special Keying to Match--24U and 36U Flexx", "Key Ring 25mm (10)", "Key Ring 60mm (5 rings 10 grey seals)", "Key Ring 90mm (5 rings 10 grey seals)", "Key Tag single Black", "Key Tag Kit 16 units", "Grey Seals", "Green Serialised Seal", "Key Card Fob" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        partList.setEnabled(false);
+        jScrollPane5.setViewportView(partList);
+
+        jLabel5.setText("Parts");
+
+        removePartButton.setText("Remove");
+        removePartButton.setEnabled(false);
+        removePartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removePartButtonActionPerformed(evt);
+            }
+        });
+
+        addPartButton.setText("Add");
+        addPartButton.setEnabled(false);
+        addPartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPartButtonActionPerformed(evt);
+            }
+        });
+
+        partSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
+        partSpinner.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,8 +203,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(209, 209, 209))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(241, 241, 241))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
@@ -169,24 +225,41 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(panelSpinner, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(addPanelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(terminalSpinner, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(addTerminalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(194, 194, 194))
+                                .addComponent(addTerminalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(removePanelButton)
+                            .addComponent(removeTerminalButton)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(partSpinner, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(addPartButton, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(removePartButton)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(jLabel5)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(227, 227, 227))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,28 +272,47 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(panelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addPanelButton)))
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel3)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(addPanelButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removePanelButton)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
                                 .addComponent(terminalSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(addTerminalButton))))
-                    .addComponent(jScrollPane4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(238, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addTerminalButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removeTerminalButton)))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(partSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addPartButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removePartButton))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("ProxSafe", jPanel1);
+        jScrollPane6.setViewportView(jPanel1);
+
+        jTabbedPane2.addTab("tab3", jScrollPane6);
         jTabbedPane2.addTab("Final Quote", jPanel2);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 790));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 1020));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -328,15 +420,139 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addTerminalButtonActionPerformed
 
+    private void removePanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePanelButtonActionPerformed
+        
+        if(panelList.isSelectionEmpty()) {
+            
+            JOptionPane.showMessageDialog(this, "You must select something first!", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else {
+            
+            Integer val = (Integer) panelSpinner.getValue();
+            String selectedPanel = panelList.getSelectedValue();
+            
+            if(manager.proxSafePanels.containsKey(selectedPanel)) {
+                
+                int old = manager.proxSafePanels.get(selectedPanel);
+                if((old - val) > 0) {
+                    manager.proxSafePanels.put(selectedPanel, old - val);
+                } else {
+                    manager.proxSafePanels.remove(selectedPanel);
+                }
+                
+            }
+            
+            panelSpinner.setValue(1);
+            updateSystem();
+            
+        }
+        
+    }//GEN-LAST:event_removePanelButtonActionPerformed
+
+    private void removeTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeTerminalButtonActionPerformed
+        
+        if(terminalList.isSelectionEmpty()) {
+            
+            JOptionPane.showMessageDialog(this, "You must select something first!", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else {
+            
+            Integer val = (Integer) terminalSpinner.getValue();
+            String selectedTerminal = terminalList.getSelectedValue();
+            
+            if(manager.proxSafeTerminals.containsKey(selectedTerminal)) {
+                
+                int old = manager.proxSafeTerminals.get(selectedTerminal);
+                if((old - val) > 0) {
+                    manager.proxSafeTerminals.put(selectedTerminal, old - val);
+                } else {
+                    manager.proxSafeTerminals.remove(selectedTerminal);
+                }
+                
+            }
+            
+            terminalSpinner.setValue(1);
+            updateSystem();
+            
+        }
+        
+    }//GEN-LAST:event_removeTerminalButtonActionPerformed
+
+    private void removePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePartButtonActionPerformed
+        
+        if(partList.isSelectionEmpty()) {
+            
+            JOptionPane.showMessageDialog(this, "You must select something first!", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else {
+            
+            Integer val = (Integer) partSpinner.getValue();
+            String selectedPart = terminalList.getSelectedValue();
+            
+            if(manager.proxSafeParts.containsKey(selectedPart)) {
+                
+                int old = manager.proxSafeParts.get(selectedPart);
+                if((old - val) > 0) {
+                    manager.proxSafeParts.put(selectedPart, old - val);
+                } else {
+                    manager.proxSafeParts.remove(selectedPart);
+                }
+                
+            }
+            
+            partSpinner.setValue(1);
+            updateSystem();
+            
+        }
+        
+    }//GEN-LAST:event_removePartButtonActionPerformed
+
+    private void addPartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPartButtonActionPerformed
+        
+        if(partList.isSelectionEmpty()) {
+            
+            JOptionPane.showMessageDialog(this, "You must select something first!", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else {
+            
+            Integer val = (Integer) partSpinner.getValue();
+            String selectedPart = partList.getSelectedValue();
+            
+            //# OF PARTS EXCEEDS MAXIMUM CHECK
+            
+            if(manager.proxSafeParts.containsKey(selectedPart)) {
+                
+                manager.proxSafeParts.put(selectedPart, manager.proxSafeParts.get(selectedPart) + val);
+                
+            } else {
+                
+                manager.proxSafeParts.put(selectedPart, val);
+                
+            }
+            
+            partSpinner.setValue(1);
+            updateSystem();
+            
+        }
+        
+    }//GEN-LAST:event_addPartButtonActionPerformed
+
     public void enableComponents() {
         
         panelList.setEnabled(true);
         panelSpinner.setEnabled(true);
         addPanelButton.setEnabled(true);
+        removePanelButton.setEnabled(true);
         
         terminalList.setEnabled(true);
         terminalSpinner.setEnabled(true);
         addTerminalButton.setEnabled(true);
+        removeTerminalButton.setEnabled(true);
+        
+        partList.setEnabled(true);
+        partSpinner.setEnabled(true);
+        addPartButton.setEnabled(true);
+        removePartButton.setEnabled(true);
         
     }
     
@@ -344,6 +560,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         manager.proxSafeTerminals.clear();
         manager.proxSafePanels.clear();
+        manager.proxSafeParts.clear();
         manager.proxSafeCabinet = "";
         
         systemTextArea.setText("");
@@ -368,8 +585,15 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         if(manager.proxSafeTerminals.isEmpty() == false) {
-            text += " ";
+            text += "\n";
             for(Entry<String, Integer> entry : manager.proxSafeTerminals.entrySet()) {
+                text += "  - " + entry.getKey() + " x " + entry.getValue() + "\n";
+            }
+        }
+        
+        if(manager.proxSafeParts.isEmpty() == false) {
+            text += "\n";
+            for(Entry<String, Integer> entry : manager.proxSafeParts.entrySet()) {
                 text += "  - " + entry.getKey() + " x " + entry.getValue() + "\n";
             }
         }
@@ -380,6 +604,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPanelButton;
+    private javax.swing.JButton addPartButton;
     private javax.swing.JButton addTerminalButton;
     private javax.swing.JList<String> cabinetList;
     private javax.swing.JButton jButton1;
@@ -387,15 +612,23 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JList<String> panelList;
     private javax.swing.JSpinner panelSpinner;
+    private javax.swing.JList<String> partList;
+    private javax.swing.JSpinner partSpinner;
+    private javax.swing.JButton removePanelButton;
+    private javax.swing.JButton removePartButton;
+    private javax.swing.JButton removeTerminalButton;
     private javax.swing.JButton selectCabinetButton;
     private javax.swing.JTextArea systemTextArea;
     private javax.swing.JList<String> terminalList;

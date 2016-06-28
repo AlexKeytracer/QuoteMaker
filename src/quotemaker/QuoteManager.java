@@ -14,6 +14,7 @@ public class QuoteManager {
     
     public Map<String, Integer> proxSafePanels = new HashMap<>();
     public Map<String, Integer> proxSafeTerminals = new HashMap<>();
+    public Map<String, Integer> proxSafeParts = new HashMap<>();
     
     public QuoteManager (final MainFrame frame) {
         
