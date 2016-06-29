@@ -237,4 +237,16 @@ public final class Info {
         
     }
     
+    public static Integer lookupPrice(String product) {
+        
+        return PRICES.containsKey(product) ? PRICES.get(product) : null;
+        
+    }
+    
+    public static String lookupId(String product) {
+        
+        return IDS.containsKey(product) ? IDS.get(product) : null;
+        
+    }
+    
 }
