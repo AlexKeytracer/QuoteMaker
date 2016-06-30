@@ -96,6 +96,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         finalQuoteTable = new javax.swing.JTable();
+        finishQuoteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ProxSafe Quote Maker");
@@ -291,7 +292,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         interfaceList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Web Services WBS", "Importer IMP", "Lightweight Directory Access Protocol LDAP  ", "Lenel OnGuard Interface LNL Requires WBS in addition", "Software House CCURE 9000 Interface SWH Requires WBS in addition", "Object Linking & Embedding for Process Control OPC" };
+            String[] strings = { "Web Services WBS", "Importer IMP", "Lightweight Directory Access Protocol LDAP", "Lenel OnGuard Interface LNL Requires WBS in addition", "Software House CCURE 9000 Interface SWH Requires WBS in addition", "Object Linking & Embedding for Process Control OPC" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -418,7 +419,7 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addGap(0, 6, Short.MAX_VALUE)
                                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                                             .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING))))
@@ -438,7 +439,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(removeInterfaceButton))
                                 .addGap(33, 33, 33))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
@@ -468,8 +469,8 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -498,9 +499,9 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(removeModuleButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel8))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,16 +532,14 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addComponent(addPartButton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(removePartButton))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(interfaceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(addInterfaceButton)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(removeInterfaceButton))
-                                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(interfaceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(addInterfaceButton)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(removeInterfaceButton))
+                                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(jLabel5)
@@ -609,13 +608,26 @@ public class MainFrame extends javax.swing.JFrame {
             finalQuoteTable.getColumnModel().getColumn(4).setPreferredWidth(116);
         }
 
+        finishQuoteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        finishQuoteButton.setText("Finish");
+        finishQuoteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finishQuoteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(544, 544, 544)
+                        .addComponent(finishQuoteButton)))
                 .addContainerGap(544, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -623,7 +635,9 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(finishQuoteButton)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Final Quote", jPanel2);
@@ -1093,6 +1107,16 @@ public class MainFrame extends javax.swing.JFrame {
         manager.finishProxSafe();
     }//GEN-LAST:event_finishButtonActionPerformed
 
+    private void finishQuoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishQuoteButtonActionPerformed
+        SheetMaker maker = new SheetMaker();
+        try {
+            maker.exportQuote(manager);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "An error occurred while exporting the data.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_finishQuoteButtonActionPerformed
+
     public void enableComponents() {
         
         panelList.setEnabled(true);
@@ -1194,6 +1218,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
         
+        if(manager.proxSafeInterfaces.isEmpty() == false) {
+            text += "\n";
+            for(Entry<String, Integer> entry : manager.proxSafeInterfaces.entrySet()) {
+                text += "  - " + entry.getKey() + " x " + entry.getValue() + "\n";
+            }
+        }
+        
         if(manager.proxSafeLockers.isEmpty() == false) {
             text += "\n";
             for(Entry<String, Integer> entry : manager.proxSafeLockers.entrySet()) {
@@ -1218,6 +1249,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> cabinetList;
     public javax.swing.JTable finalQuoteTable;
     private javax.swing.JButton finishButton;
+    private javax.swing.JButton finishQuoteButton;
     private javax.swing.JList<String> interfaceList;
     private javax.swing.JSpinner interfaceSpinner;
     private javax.swing.JLabel jLabel1;

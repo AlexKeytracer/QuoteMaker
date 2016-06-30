@@ -3,6 +3,7 @@ package quotemaker;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +16,8 @@ public class QuoteManager {
     
     public final MainFrame frame;
     public String proxSafeCabinet = "";
+    
+    public HashSet<String> proxSafeCabinets = new HashSet<>();
     
     public Map<String, Integer> proxSafePanels = new HashMap<>();
     public Map<String, Integer> proxSafeTerminals = new HashMap<>();
@@ -42,6 +45,8 @@ public class QuoteManager {
         if(frame.finalQuoteTable.getRowCount() > 0) {
             model.removeRow(frame.finalQuoteTable.getRowCount() - 1);
         }
+        
+        proxSafeCabinets.add(proxSafeCabinet);
         
         model.addRow(new Object[]{null, null, "<html><b>" + proxSafeCabinet + "</b></html>", null, formatter.format(Info.lookupPrice(proxSafeCabinet))});
         
