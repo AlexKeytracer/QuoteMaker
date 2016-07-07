@@ -30,7 +30,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.poi.ss.util.AreaReference;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellReference;
@@ -64,7 +66,25 @@ public class SheetMaker {
         
     }
     
-    public void exportQuote(QuoteManager manager) throws FileNotFoundException, IOException {
+    public File selectExportFile(QuoteManager manager) {
+        
+        JFileChooser chooser = new JFileChooser();
+        
+        FileNameExtensionFilter xmlFilter = new FileNameExtensionFilter("Microsoft Excel Worksheet (*.xlsx)", "xlsx");
+        chooser.addChoosableFileFilter(xmlFilter);
+        chooser.setFileFilter(xmlFilter);
+        
+        int result = chooser.showSaveDialog(manager.frame);
+        
+        if(result == JFileChooser.APPROVE_OPTION) {
+            return chooser.getSelectedFile();
+        }
+        
+        return null;
+        
+    }
+    
+    public void exportQuote(QuoteManager manager, File output) throws FileNotFoundException, IOException {
         
         XSSFWorkbook wb = new XSSFWorkbook();
         
@@ -204,12 +224,6 @@ public class SheetMaker {
         
         sheet.setColumnWidth(3, 23428);
         
-        System.out.println(sheet.getColumnWidth(0));
-        System.out.println(sheet.getColumnWidth(1));
-        System.out.println(sheet.getColumnWidth(2));
-        System.out.println(sheet.getColumnWidth(3));
-        System.out.println(sheet.getColumnWidth(4));
-        
         //Add extras
         
         addPicture(wb, sheet);
@@ -231,8 +245,9 @@ public class SheetMaker {
         attnCell.setCellValue("Attn: John Smith");
         attnCell.setCellStyle(boldCenterStyle);
         
-        FileOutputStream fileOut = new FileOutputStream("quote.xlsx");
+        FileOutputStream fileOut = new FileOutputStream(output);
         wb.write(fileOut);
+        fileOut.flush();
         fileOut.close();
     }
     

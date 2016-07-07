@@ -5,8 +5,14 @@
  */
 package quotemaker;
 
+import java.io.File;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -15,6 +21,7 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
 
     private QuoteManager manager;
+    public static String currentTheme = "Smart";
     
     /**
      * Creates new form MainFrame
@@ -40,6 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        themeButtonGroup = new javax.swing.ButtonGroup();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
@@ -97,13 +105,22 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         finalQuoteTable = new javax.swing.JTable();
         finishQuoteButton = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        smartThemeButton = new javax.swing.JRadioButtonMenuItem();
+        aeroThemeButton = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ProxSafe Quote Maker");
 
+        jTabbedPane2.setFocusable(false);
         jTabbedPane2.setPreferredSize(new java.awt.Dimension(1566, 736));
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane6.setFocusable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Cabinet Type");
@@ -141,6 +158,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3.setText("Terminals");
 
         selectCabinetButton.setText("Select");
+        selectCabinetButton.setFocusable(false);
         selectCabinetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectCabinetButtonActionPerformed(evt);
@@ -149,6 +167,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         addPanelButton.setText("Add");
         addPanelButton.setEnabled(false);
+        addPanelButton.setFocusable(false);
         addPanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPanelButtonActionPerformed(evt);
@@ -163,6 +182,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         addTerminalButton.setText("Add");
         addTerminalButton.setEnabled(false);
+        addTerminalButton.setFocusable(false);
         addTerminalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addTerminalButtonActionPerformed(evt);
@@ -187,6 +207,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         removePanelButton.setText("Remove");
         removePanelButton.setEnabled(false);
+        removePanelButton.setFocusable(false);
         removePanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removePanelButtonActionPerformed(evt);
@@ -195,6 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         removeTerminalButton.setText("Remove");
         removeTerminalButton.setEnabled(false);
+        removeTerminalButton.setFocusable(false);
         removeTerminalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeTerminalButtonActionPerformed(evt);
@@ -214,6 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         removePartButton.setText("Remove");
         removePartButton.setEnabled(false);
+        removePartButton.setFocusable(false);
         removePartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removePartButtonActionPerformed(evt);
@@ -222,6 +245,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         addPartButton.setText("Add");
         addPartButton.setEnabled(false);
+        addPartButton.setFocusable(false);
         addPartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPartButtonActionPerformed(evt);
@@ -244,6 +268,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         addModuleButton.setText("Add");
         addModuleButton.setEnabled(false);
+        addModuleButton.setFocusable(false);
         addModuleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addModuleButtonActionPerformed(evt);
@@ -252,6 +277,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         removeModuleButton.setText("Remove");
         removeModuleButton.setEnabled(false);
+        removeModuleButton.setFocusable(false);
         removeModuleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeModuleButtonActionPerformed(evt);
@@ -277,6 +303,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         addAdditionalLicenseButton.setText("Add");
         addAdditionalLicenseButton.setEnabled(false);
+        addAdditionalLicenseButton.setFocusable(false);
         addAdditionalLicenseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAdditionalLicenseButtonActionPerformed(evt);
@@ -285,6 +312,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         removeAdditionalLicenseButton.setText("Remove");
         removeAdditionalLicenseButton.setEnabled(false);
+        removeAdditionalLicenseButton.setFocusable(false);
         removeAdditionalLicenseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeAdditionalLicenseButtonActionPerformed(evt);
@@ -307,6 +335,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         addInterfaceButton.setText("Add");
         addInterfaceButton.setEnabled(false);
+        addInterfaceButton.setFocusable(false);
         addInterfaceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addInterfaceButtonActionPerformed(evt);
@@ -315,6 +344,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         removeInterfaceButton.setText("Remove");
         removeInterfaceButton.setEnabled(false);
+        removeInterfaceButton.setFocusable(false);
         removeInterfaceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeInterfaceButtonActionPerformed(evt);
@@ -610,6 +640,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         finishQuoteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         finishQuoteButton.setText("Finish");
+        finishQuoteButton.setFocusable(false);
         finishQuoteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finishQuoteButtonActionPerformed(evt);
@@ -623,12 +654,12 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(340, 340, 340)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(544, 544, 544)
+                        .addGap(740, 740, 740)
                         .addComponent(finishQuoteButton)))
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -637,12 +668,49 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(finishQuoteButton)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Final Quote", jPanel2);
 
-        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.LINE_START);
+
+        jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        fileMenu.setText("File");
+
+        jMenu1.setText("Theme");
+
+        themeButtonGroup.add(smartThemeButton);
+        smartThemeButton.setSelected(true);
+        smartThemeButton.setText("Smart");
+        smartThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                smartThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(smartThemeButton);
+
+        themeButtonGroup.add(aeroThemeButton);
+        aeroThemeButton.setText("Aero");
+        aeroThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aeroThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(aeroThemeButton);
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu1.add(jMenuItem2);
+
+        fileMenu.add(jMenu1);
+
+        jMenuItem1.setText("Exit");
+        fileMenu.add(jMenuItem1);
+
+        jMenuBar1.add(fileMenu);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -670,7 +738,7 @@ public class MainFrame extends javax.swing.JFrame {
                             clearSystem();
                             manager.proxSafeCabinet = selected;
                             updateSystem();
-                            enableComponents();
+                            setComponentStates(true);
                             break;
                         default:
                             break;
@@ -680,7 +748,7 @@ public class MainFrame extends javax.swing.JFrame {
                     
                     manager.proxSafeCabinet = selected;
                     updateSystem();
-                    enableComponents();
+                    setComponentStates(true);
                     
                 }
                 
@@ -1105,56 +1173,118 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishButtonActionPerformed
         manager.finishProxSafe();
+        clearSystem();
+        JOptionPane.showMessageDialog(this, "System added to final quote.");
+        
     }//GEN-LAST:event_finishButtonActionPerformed
 
     private void finishQuoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishQuoteButtonActionPerformed
         SheetMaker maker = new SheetMaker();
         try {
-            maker.exportQuote(manager);
+            
+            File file = maker.selectExportFile(manager);
+            
+            if(file != null && file.isDirectory() == false) {
+                
+                //File extension check
+                if(file.getName().toLowerCase().endsWith(".xlsx") == false) {
+
+                    file = new File(file.getCanonicalPath() + ".xlsx");
+
+                }
+                
+                if(file.exists()) {
+                    
+                    int choice = JOptionPane.showConfirmDialog(this, "File already exists. Overwrite?", "Export Quote", JOptionPane.YES_NO_OPTION);
+                    if(choice != JOptionPane.YES_OPTION) {
+                        return;
+                    }
+                    
+                    file.delete();
+                }
+
+                maker.exportQuote(manager, file);
+            
+            }
+        
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "An error occurred while exporting the data.", "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
     }//GEN-LAST:event_finishQuoteButtonActionPerformed
 
-    public void enableComponents() {
+    private void smartThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smartThemeButtonActionPerformed
         
-        panelList.setEnabled(true);
-        panelSpinner.setEnabled(true);
-        addPanelButton.setEnabled(true);
-        removePanelButton.setEnabled(true);
+        if(currentTheme.equalsIgnoreCase("Smart") == false) {
+            //Set theme to Smart
+            try {
+                UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+                SwingUtilities.updateComponentTreeUI(this);
+                this.pack();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "An error occurred changing themes.", "Error", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            currentTheme = "Smart";
+        }
         
-        terminalList.setEnabled(true);
-        terminalSpinner.setEnabled(true);
-        addTerminalButton.setEnabled(true);
-        removeTerminalButton.setEnabled(true);
+    }//GEN-LAST:event_smartThemeButtonActionPerformed
+
+    private void aeroThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aeroThemeButtonActionPerformed
         
-        partList.setEnabled(true);
-        partSpinner.setEnabled(true);
-        addPartButton.setEnabled(true);
-        removePartButton.setEnabled(true);
+        if(currentTheme.equalsIgnoreCase("Aero") == false) {
+            //Set theme to Aero
+            try {
+                UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
+                SwingUtilities.updateComponentTreeUI(this);
+                this.pack();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "An error occurred changing themes.", "Error", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            currentTheme = "Aero";
+        }
         
-        moduleList.setEnabled(true);
-        moduleSpinner.setEnabled(true);
-        addModuleButton.setEnabled(true);
-        removeModuleButton.setEnabled(true);
+    }//GEN-LAST:event_aeroThemeButtonActionPerformed
+
+    public void setComponentStates(boolean b) {
         
-        additionalLicenseList.setEnabled(true);
-        additionalLicenseSpinner.setEnabled(true);
-        addAdditionalLicenseButton.setEnabled(true);
-        removeAdditionalLicenseButton.setEnabled(true);
+        panelList.setEnabled(b);
+        panelSpinner.setEnabled(b);
+        addPanelButton.setEnabled(b);
+        removePanelButton.setEnabled(b);
         
-        interfaceList.setEnabled(true);
-        interfaceSpinner.setEnabled(true);
-        addInterfaceButton.setEnabled(true);
-        removeInterfaceButton.setEnabled(true);
+        terminalList.setEnabled(b);
+        terminalSpinner.setEnabled(b);
+        addTerminalButton.setEnabled(b);
+        removeTerminalButton.setEnabled(b);
         
-        lockerList.setEnabled(true);
-        lockerSpinner.setEnabled(true);
-        addLockerButton.setEnabled(true);
-        removeLockerButton.setEnabled(true);
+        partList.setEnabled(b);
+        partSpinner.setEnabled(b);
+        addPartButton.setEnabled(b);
+        removePartButton.setEnabled(b);
         
-        finishButton.setEnabled(true);
+        moduleList.setEnabled(b);
+        moduleSpinner.setEnabled(b);
+        addModuleButton.setEnabled(b);
+        removeModuleButton.setEnabled(b);
+        
+        additionalLicenseList.setEnabled(b);
+        additionalLicenseSpinner.setEnabled(b);
+        addAdditionalLicenseButton.setEnabled(b);
+        removeAdditionalLicenseButton.setEnabled(b);
+        
+        interfaceList.setEnabled(b);
+        interfaceSpinner.setEnabled(b);
+        addInterfaceButton.setEnabled(b);
+        removeInterfaceButton.setEnabled(b);
+        
+        lockerList.setEnabled(b);
+        lockerSpinner.setEnabled(b);
+        addLockerButton.setEnabled(b);
+        removeLockerButton.setEnabled(b);
+        
+        finishButton.setEnabled(b);
         
     }
     
@@ -1170,6 +1300,17 @@ public class MainFrame extends javax.swing.JFrame {
         manager.proxSafeCabinet = "";
         
         systemTextArea.setText("");
+        
+        setComponentStates(false);
+        
+        terminalList.clearSelection();
+        panelList.clearSelection();
+        partList.clearSelection();
+        moduleList.clearSelection();
+        additionalLicenseList.clearSelection();
+        interfaceList.clearSelection();
+        lockerList.clearSelection();
+        cabinetList.clearSelection();
         
     }
     
@@ -1246,7 +1387,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton addTerminalButton;
     private javax.swing.JList<String> additionalLicenseList;
     private javax.swing.JSpinner additionalLicenseSpinner;
+    private javax.swing.JRadioButtonMenuItem aeroThemeButton;
     private javax.swing.JList<String> cabinetList;
+    private javax.swing.JMenu fileMenu;
     public javax.swing.JTable finalQuoteTable;
     private javax.swing.JButton finishButton;
     private javax.swing.JButton finishQuoteButton;
@@ -1261,6 +1404,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1291,8 +1438,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton removePartButton;
     private javax.swing.JButton removeTerminalButton;
     private javax.swing.JButton selectCabinetButton;
+    private javax.swing.JRadioButtonMenuItem smartThemeButton;
     private javax.swing.JTextArea systemTextArea;
     private javax.swing.JList<String> terminalList;
     private javax.swing.JSpinner terminalSpinner;
+    private javax.swing.ButtonGroup themeButtonGroup;
     // End of variables declaration//GEN-END:variables
 }

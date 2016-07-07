@@ -4,6 +4,7 @@ package quotemaker;
  *
  * @author alex.c
  */
+import java.awt.Color;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -16,7 +17,8 @@ public class QuoteMaker {
 
                 try {
                     // select Look and Feel
-                    UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+                    UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+                    UIManager.put("TabbedPane.focus", new Color(0, 0, 0, 0));
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
