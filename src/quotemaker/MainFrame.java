@@ -108,9 +108,15 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        smartThemeButton = new javax.swing.JRadioButtonMenuItem();
         aeroThemeButton = new javax.swing.JRadioButtonMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        hifiThemeButton = new javax.swing.JRadioButtonMenuItem();
+        mcWinThemeButton = new javax.swing.JRadioButtonMenuItem();
+        noireThemeButton = new javax.swing.JRadioButtonMenuItem();
+        textureThemeButton = new javax.swing.JRadioButtonMenuItem();
+        fastThemeButton = new javax.swing.JRadioButtonMenuItem();
+        smartThemeButton = new javax.swing.JRadioButtonMenuItem();
+        mintThemeButton = new javax.swing.JRadioButtonMenuItem();
+        lunaThemeButton = new javax.swing.JRadioButtonMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -484,23 +490,22 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGap(251, 251, 251)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(170, 170, 170)
-                                .addComponent(jLabel4))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(88, 88, 88))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(finishButton)
-                        .addGap(255, 255, 255))))
+                        .addGap(255, 255, 255))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(228, 228, 228))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,6 +603,7 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane6.setViewportView(jPanel1);
 
         jTabbedPane2.addTab("ProxSafe", jScrollPane6);
+        jScrollPane6.getVerticalScrollBar().setUnitIncrement(16);
 
         finalQuoteTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -659,7 +665,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(740, 740, 740)
                         .addComponent(finishQuoteButton)))
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -678,8 +684,65 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         fileMenu.setText("File");
+        fileMenu.setDelay(0);
+        fileMenu.setMinimumSize(new java.awt.Dimension(200, 0));
 
         jMenu1.setText("Theme");
+        jMenu1.setMinimumSize(new java.awt.Dimension(200, 0));
+
+        themeButtonGroup.add(aeroThemeButton);
+        aeroThemeButton.setText("Aero");
+        aeroThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aeroThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(aeroThemeButton);
+
+        themeButtonGroup.add(hifiThemeButton);
+        hifiThemeButton.setText("Charcoal");
+        hifiThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hifiThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(hifiThemeButton);
+
+        themeButtonGroup.add(mcWinThemeButton);
+        mcWinThemeButton.setText("Mac");
+        mcWinThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mcWinThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mcWinThemeButton);
+
+        themeButtonGroup.add(noireThemeButton);
+        noireThemeButton.setText("Night");
+        noireThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noireThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(noireThemeButton);
+
+        themeButtonGroup.add(textureThemeButton);
+        textureThemeButton.setText("Parchment");
+        textureThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textureThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(textureThemeButton);
+
+        themeButtonGroup.add(fastThemeButton);
+        fastThemeButton.setText("Plain");
+        fastThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fastThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(fastThemeButton);
 
         themeButtonGroup.add(smartThemeButton);
         smartThemeButton.setSelected(true);
@@ -691,21 +754,32 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu1.add(smartThemeButton);
 
-        themeButtonGroup.add(aeroThemeButton);
-        aeroThemeButton.setText("Aero");
-        aeroThemeButton.addActionListener(new java.awt.event.ActionListener() {
+        themeButtonGroup.add(mintThemeButton);
+        mintThemeButton.setText("Snow");
+        mintThemeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aeroThemeButtonActionPerformed(evt);
+                mintThemeButtonActionPerformed(evt);
             }
         });
-        jMenu1.add(aeroThemeButton);
+        jMenu1.add(mintThemeButton);
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
+        themeButtonGroup.add(lunaThemeButton);
+        lunaThemeButton.setText("Windows XP");
+        lunaThemeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lunaThemeButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(lunaThemeButton);
 
         fileMenu.add(jMenu1);
 
         jMenuItem1.setText("Exit");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem1);
 
         jMenuBar1.add(fileMenu);
@@ -1214,11 +1288,50 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_finishQuoteButtonActionPerformed
 
     private void smartThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smartThemeButtonActionPerformed
+        changeTheme("Smart");
+    }//GEN-LAST:event_smartThemeButtonActionPerformed
+
+    private void aeroThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aeroThemeButtonActionPerformed
+        changeTheme("Aero");
+    }//GEN-LAST:event_aeroThemeButtonActionPerformed
+
+    private void hifiThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hifiThemeButtonActionPerformed
+        changeTheme("HiFi");
+    }//GEN-LAST:event_hifiThemeButtonActionPerformed
+
+    private void mcWinThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mcWinThemeButtonActionPerformed
+        changeTheme("McWin");
+    }//GEN-LAST:event_mcWinThemeButtonActionPerformed
+
+    private void noireThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noireThemeButtonActionPerformed
+        changeTheme("Noire");
+    }//GEN-LAST:event_noireThemeButtonActionPerformed
+
+    private void textureThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textureThemeButtonActionPerformed
+        changeTheme("Texture");
+    }//GEN-LAST:event_textureThemeButtonActionPerformed
+
+    private void fastThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fastThemeButtonActionPerformed
+        changeTheme("Fast");
+    }//GEN-LAST:event_fastThemeButtonActionPerformed
+
+    private void mintThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mintThemeButtonActionPerformed
+        changeTheme("Mint");
+    }//GEN-LAST:event_mintThemeButtonActionPerformed
+
+    private void lunaThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lunaThemeButtonActionPerformed
+        changeTheme("Luna");
+    }//GEN-LAST:event_lunaThemeButtonActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    public void changeTheme(String theme) {
         
-        if(currentTheme.equalsIgnoreCase("Smart") == false) {
-            //Set theme to Smart
+        if(currentTheme.equalsIgnoreCase(theme) == false) {
             try {
-                UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+                UIManager.setLookAndFeel("com.jtattoo.plaf." + theme.toLowerCase() + "." + theme + "LookAndFeel");
                 SwingUtilities.updateComponentTreeUI(this);
                 this.pack();
             } catch (Exception ex) {
@@ -1228,25 +1341,8 @@ public class MainFrame extends javax.swing.JFrame {
             currentTheme = "Smart";
         }
         
-    }//GEN-LAST:event_smartThemeButtonActionPerformed
-
-    private void aeroThemeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aeroThemeButtonActionPerformed
-        
-        if(currentTheme.equalsIgnoreCase("Aero") == false) {
-            //Set theme to Aero
-            try {
-                UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
-                SwingUtilities.updateComponentTreeUI(this);
-                this.pack();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "An error occurred changing themes.", "Error", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            currentTheme = "Aero";
-        }
-        
-    }//GEN-LAST:event_aeroThemeButtonActionPerformed
-
+    }
+    
     public void setComponentStates(boolean b) {
         
         panelList.setEnabled(b);
@@ -1389,10 +1485,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner additionalLicenseSpinner;
     private javax.swing.JRadioButtonMenuItem aeroThemeButton;
     private javax.swing.JList<String> cabinetList;
+    private javax.swing.JRadioButtonMenuItem fastThemeButton;
     private javax.swing.JMenu fileMenu;
     public javax.swing.JTable finalQuoteTable;
     private javax.swing.JButton finishButton;
     private javax.swing.JButton finishQuoteButton;
+    private javax.swing.JRadioButtonMenuItem hifiThemeButton;
     private javax.swing.JList<String> interfaceList;
     private javax.swing.JSpinner interfaceSpinner;
     private javax.swing.JLabel jLabel1;
@@ -1407,7 +1505,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1424,8 +1521,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JList<String> lockerList;
     private javax.swing.JSpinner lockerSpinner;
+    private javax.swing.JRadioButtonMenuItem lunaThemeButton;
+    private javax.swing.JRadioButtonMenuItem mcWinThemeButton;
+    private javax.swing.JRadioButtonMenuItem mintThemeButton;
     private javax.swing.JList<String> moduleList;
     private javax.swing.JSpinner moduleSpinner;
+    private javax.swing.JRadioButtonMenuItem noireThemeButton;
     private javax.swing.JList<String> panelList;
     private javax.swing.JSpinner panelSpinner;
     private javax.swing.JList<String> partList;
@@ -1442,6 +1543,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea systemTextArea;
     private javax.swing.JList<String> terminalList;
     private javax.swing.JSpinner terminalSpinner;
+    private javax.swing.JRadioButtonMenuItem textureThemeButton;
     private javax.swing.ButtonGroup themeButtonGroup;
     // End of variables declaration//GEN-END:variables
 }

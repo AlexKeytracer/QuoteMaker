@@ -17,7 +17,7 @@ public class QuoteMaker {
 
                 try {
                     // select Look and Feel
-                    UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+                    UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
                     UIManager.put("TabbedPane.focus", new Color(0, 0, 0, 0));
                 } catch (Exception ex) {
                     ex.printStackTrace();
